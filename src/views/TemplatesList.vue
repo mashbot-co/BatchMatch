@@ -28,14 +28,23 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   name: 'templates-list',
   components: {
   },
+  methods: {
+    ...mapActions([
+      'setTemplates'
+    ])
+  },
   data () {
     return {
     }
+  },
+  mounted () {
+    this.setTemplates()
   }
 }
 </script>

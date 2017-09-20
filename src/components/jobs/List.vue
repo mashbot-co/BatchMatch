@@ -91,16 +91,10 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 
 export default {
   name: 'jobs-list',
   components: {
-  },
-  methods: {
-    ...mapActions([
-      'setJobRequests'
-    ])
   },
   data () {
     return {
@@ -116,9 +110,6 @@ export default {
         { avatar: '/static/5.jpg', title: 'Recipe to try', subtitle: "<span class='grey--text text--darken-2'>Britta Holt</span> — We should eat this: Grate, Squash, Corn, and tomatillo Tacos." }
       ]
     }
-  },
-  mounted () {
-    this.setJobRequests()
   }
 }
 </script>

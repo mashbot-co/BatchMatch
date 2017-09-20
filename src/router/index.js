@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import JobsList from '@/views/JobsList'
 import DownloadsList from '@/views/DownloadsList'
 import TemplatesList from '@/views/TemplatesList'
+import Documentation from '@/views/Documentation'
+
 import SignIn from '@/views/security/SignIn'
 import ResetPassword from '@/views/security/ResetPassword'
 import UpdatePassword from '@/views/security/UpdatePassword'
@@ -31,6 +33,11 @@ var router = new Router({
       path: '/templates',
       name: 'TemplatesList',
       component: TemplatesList
+    },
+    {
+      path: '/documentation',
+      name: 'Documentation',
+      component: Documentation
     },
     {
       path: '/sign-in',

@@ -1,7 +1,7 @@
 <template>
-    <v-toolbar dark dense fixed class="blue">
+    <v-toolbar dark dense fixed :class="theme">
       <v-toolbar-side-icon @click.stop="toggleNavigator"></v-toolbar-side-icon>
-      <v-toolbar-title>D&B Batch Match</v-toolbar-title>
+      <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
 
       <v-spacer></v-spacer>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
 
   export default {
     name: 'app-bar',
@@ -32,6 +32,12 @@
         this.logOut()
         this.$router.push({ path: '/sign-in' })
       }
+    },
+    computed: {
+      ...mapGetters({
+        title: 'title',
+        theme: 'theme'
+      })
     }
   }
 </script>

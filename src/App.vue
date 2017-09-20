@@ -5,6 +5,7 @@
     <chooser v-if="isLoggedIn" />
     <main>
       <router-view></router-view>
+      <settings></settings>
     </main>
   </v-app>
 </template>
@@ -14,13 +15,15 @@ import { mapGetters } from 'vuex'
 import AppBar from './components/core/AppBar'
 import Chooser from './components/core/Chooser'
 import Navigator from './components/core/Navigator'
+import Settings from './views/Settings'
 
 export default {
   name: 'app',
   components: {
     AppBar,
     Chooser,
-    Navigator
+    Navigator,
+    Settings
   },
   computed: {
     ...mapGetters({
@@ -32,6 +35,10 @@ export default {
         cls = 'fill-height'
       }
       return cls
+    },
+    data () {
+      return {
+      }
     }
   }
 }
@@ -58,5 +65,10 @@ export default {
 
 .icon.icon--medium {
     font-size: 1.8rem !important;
+}
+
+.flex > .list__tile__title {
+    line-height: 48px;
+    height: 48px;
 }
 </style>

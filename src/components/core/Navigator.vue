@@ -12,6 +12,8 @@
     <!-- CATEGORY ONE (start) -->
     <v-list class="transparent pt-3">
 
+      <v-subheader>D&B BATCH MATCH</v-subheader>
+
 
       <v-list-tile @click="$router.push({path: '/jobs'})">
         <v-list-tile-action>
@@ -31,7 +33,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile @click="$router.push({path: '/downloads'})">
+      <v-list-tile @click.stop="$router.push({path: '/downloads'})">
         <v-list-tile-action>
           <v-icon warning medium>cloud_download</v-icon>
         </v-list-tile-action>
@@ -40,12 +42,21 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile @click="$router.push({path: '/page-one'})">
+      <v-list-tile @click.stop="$router.push({path: '/page-one'})">
         <v-list-tile-action>
-          <v-icon success medium>timer</v-icon>
+          <v-icon medium class="green--text">timer</v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
           <v-list-tile-title>Check Status</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+
+      <v-list-tile @click.stop="openSettings">
+        <v-list-tile-action>
+          <v-icon medium>settings</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title>Settings</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
 
@@ -58,7 +69,7 @@
 
     <!-- CATEGORY THREE (start) -->
     <v-list class="transparent">
-      <v-list-tile href='#'>
+      <v-list-tile @click="$router.push({path: '/documentation'})">
         <v-list-tile-action>
           <v-icon medium>library_books</v-icon>
         </v-list-tile-action>
@@ -103,7 +114,8 @@
     name: 'navigator',
     methods: {
       ...mapActions([
-        'closeNavigator'
+        'closeNavigator',
+        'openSettings'
       ]),
       trackChange (e) {
         if (this.navigatorVisible === true && e === false) {
